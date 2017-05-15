@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 //Connect MongoDB
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://oscar:oscar@ds127101.mlab.com:27101/tcu_test');
 
 //Load models
