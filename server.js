@@ -9,7 +9,11 @@ const bodyParser = require('body-parser');
 //Connect MongoDB
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://oscar:oscar@ds127101.mlab.com:27101/tcu_test');
+mongoose.connect('mongodb://oscar:oscar@ds127101.mlab.com:27101/tcu_test', function(err){
+    if(err) throw err;
+    console.log('Connected to database!');
+});
+
 
 //Load models
 var models = require('./server/models/schema');
@@ -20,9 +24,8 @@ const schoolApi = require('./server/api/school');
 const app = express();
 
 //Parser POST data
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
 //Path to dist
 app.use(express.static(path.join(__dirname,'dist')));
 

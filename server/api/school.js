@@ -5,15 +5,41 @@ var School = mongoose.model('School');
 
 //Get API list
 router.post('/', function(req,res){
-    var _school = new School(req.body);
-    _school.save(function(err, callback){
-        if(err) res.send(err);
-        res.json(callback);
-    });
+    if(mongoose.connection.readyState == 1){
+        var _school = new School(req.body);
+        _school.save(function(err, callback){
+            if(err) res.send(err);
+            res.json(callback);
+        });
+    }
+    else{
+        res.send("Not connected to database");
+    }
 });
 
 router.get('/', (req,res)=>{
-    res.send('api schools');
+    if(mongoose.connection.readyState == 1){
+        School.find(function(err,_schools){
+            if(err) res.send(err);
+            res.json(_schools)
+        });
+    }
+    else{
+        res.send("Not connected to database");
+    }
+});
+
+router.get('/:schoolId', (req,res)=>{
+    if(mongoose.connection.readyState == 1){
+        School.findById(req.params.schoolId, function(err,_school){
+            if(err) res.send(err);
+            else if(!req.params.schoolId) res.send("No ID was sent");
+            res.json(_school)
+        });
+    }
+    else{
+        res.send("Not connected to database");
+    }
 });
 
 module.exports = router
