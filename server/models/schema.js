@@ -6,13 +6,13 @@ var schoolSchema = new Schema({
     name: {type:String, required: true},
     address: {type:String, required: true},
     classrooms: [{type: Schema.Types.ObjectId, ref: 'Classroom'}],
-    teachers: [{type: Schema.Types.ObjectId, ref: 'Teacher'}],
+    teachers: [{type: Schema.Types.ObjectId, ref: 'User'}],
     students: [{type: Schema.Types.ObjectId, ref: 'Student'}],
 });
 module.exports = mongoose.model('School',schoolSchema);
 
 var classroomSchema = new Schema({
-    schoolId: {type: Number, ref: 'School'},
+    schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
     grade: String,
     section: String,
     teacher: String,
@@ -20,10 +20,10 @@ var classroomSchema = new Schema({
 module.exports = mongoose.model('Classroom',classroomSchema);
 
 var userSchema = new Schema({
-    schoolId: {type: Number, ref: 'School'},
-    firsName: String,
+    schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
+    firstName: String,
     secondName: String,
-    firstlastName: String,
+    firstLastName: String,
     secondLastName: String,
     email: String,
     type: String,
@@ -42,8 +42,8 @@ var noteSchema = new Schema({
 });
 
 var studentSchema = new Schema({
-    schoolId: {type: Number, ref: 'School'},
-    classroomId: {type: Number, ref: 'Classroom'},
+    schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
+    classroomId: {type: Schema.Types.ObjectId, ref: 'Classroom'},
     firsName: String,
     secondName: String,
     firstlastName: String,

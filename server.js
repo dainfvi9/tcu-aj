@@ -20,17 +20,19 @@ var models = require('./server/models/schema');
 
 //API routes
 const schoolApi = require('./server/api/school');
+const userApi = require('./server/api/user');
 
 const app = express();
 
 //Parser POST data
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //Path to dist
 app.use(express.static(path.join(__dirname,'dist')));
 
 //Use api routes
 app.use('/api/school',schoolApi);
+app.use('/api/user',userApi);
 
 //Other routes to index
 app.get('*',(req,res)=>{
