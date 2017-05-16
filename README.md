@@ -1,3 +1,20 @@
+# INSTRUCCIONES DE USO
+
+Descarguen todo el proyecto o clonen el repositorio (de preferencia clonenlo).
+
+Tienen que instalar Node.JS (version 6 o mayor) y luego tienen que usar el comando `npm install` dentro de la carpeta del proyecto para instalar las dependencias. 
+
+Luego que tengan las dependencias, en la carpeta principal esta el archivo `server.js` que es el que inicia el servidor usando el comando `node server.js`. 
+
+El proyecto esta configurado para correr un servidor de Node.js que tiene un API para realizar transacciones con MongoDB usando Mongoose. La base de datos ya esta creada y alojada en `mlab.com` para que usemos la misma. Los modelos y schemas ya estan creados.
+
+Dentro de la carpeta `./src` esta un aplicación en Angular2 como front-end, no tiene nada aún, solo las dependencias que hasta ahora solo es `Angular-Material`.
+En `./src` es donde se realiza toda la programación del front-end y pueden probar la parte visual usando `ng serve`.
+
+La carpeta `./dist` es donde esta compilado el front-end, esa carpeta se auto genera con el comando `ng build`. Este último hay que hacerlo cada vez que se prueba la base de datos con el front-end.
+
+Al lanzar el servidor de Node.js con `node server.js` el proyecto apunta directamente a la carpeta `./dist` y así se puede probar todo de un solo. Si usan solo `ng serve` no les va a cargar nada en la base de datos, solo se puede probar la parte visual.
+
 # TcuAj
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.

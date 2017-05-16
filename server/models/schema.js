@@ -15,7 +15,7 @@ var classroomSchema = new Schema({
     schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
     grade: String,
     section: String,
-    teacher: String,
+    teacherId: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 module.exports = mongoose.model('Classroom',classroomSchema);
 
@@ -27,7 +27,8 @@ var userSchema = new Schema({
     secondLastName: String,
     email: String,
     type: String,
-    active: Boolean
+    active: Boolean,
+    classrooms: [{type: Schema.Types.ObjectId, ref: 'Classroom'}],
 });
 module.exports = mongoose.model('User',userSchema);
 
