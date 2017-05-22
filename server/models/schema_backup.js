@@ -12,46 +12,45 @@ var schoolSchema = new Schema({
 module.exports = mongoose.model('School',schoolSchema);
 
 var classroomSchema = new Schema({
-    schoolId: {type: Schema.Types.ObjectId, ref: 'School', required: true},
-    grade: {type:String, required: true},
-    section: {type:String, required: true},
+    schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
+    grade: String,
+    section: String,
     teacherId: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 module.exports = mongoose.model('Classroom',classroomSchema);
 
 var userSchema = new Schema({
-    schoolId: {type: Schema.Types.ObjectId, ref: 'School', required: true},
-    firstName: {type:String, required: true},
-    secondName: {type:String, required: true},
-    firstLastName: {type:String, required: true},
-    secondLastName: {type:String, required: true},
-    email: {type:String, required: true},
-    type: {type:String, required: true},
-    active: {type:Boolean, required: true},
+    schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
+    firstName: String,
+    secondName: String,
+    firstLastName: String,
+    secondLastName: String,
+    email: String,
+    type: String,
+    active: Boolean,
     classrooms: [{type: Schema.Types.ObjectId, ref: 'Classroom'}],
-    password: {type:String, required: true},
 });
 module.exports = mongoose.model('User',userSchema);
 
 var attendanceSchema = new Schema({
-    date: {type:Date, required: true},
-    present: {type:Boolean, required: true},
+    date: Date,
+    present: Boolean
 });
 
 var noteSchema = new Schema({
-    date: {type:Date, required: true},
-    text: {type:String, required: true},
+    date: Date,
+    text: String
 });
 
 var studentSchema = new Schema({
     schoolId: {type: Schema.Types.ObjectId, ref: 'School'},
     classroomId: {type: Schema.Types.ObjectId, ref: 'Classroom'},
-    firsName: {type:String, required: true},
-    secondName: {type:String, required: true},
-    firstlastName: {type:String, required: true},
-    secondLastName: {type:String, required: true},
-    lastClass: {type:Date, default: new Date(2000,01,01)},
-    risk: {type:String, required: true},
+    firsName: String,
+    secondName: String,
+    firstlastName: String,
+    secondLastName: String,
+    lastClass: Date,
+    risk: String,
     attendanceRecord: [attendanceSchema],
     notes: [noteSchema]
 })

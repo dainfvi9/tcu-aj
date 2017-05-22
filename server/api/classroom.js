@@ -15,7 +15,7 @@ router.post('/create', function (req, res) {
                     if (err) res.send(err);
                     else if (!classroom.schoolId) res.send("No ID was sent");
                     else {
-                        _school.teachers.push(_classroom);
+                        _school.classrooms.push(_classroom);
                         _school.save();
                     }
                 });
@@ -23,7 +23,7 @@ router.post('/create', function (req, res) {
                     if (err) res.send(err);
                     else if (!classroom.schoolId) res.send("No ID was sent");
                     else {
-                        _user.teachers.push(_classroom);
+                        _user.classrooms.push(_classroom);
                         _user.save();
                     }
                 });

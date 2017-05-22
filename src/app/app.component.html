@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    sidenav
+  </md-sidenav>
+  
+  <md-toolbar color="primary">
+    <div class="app-icon-button" (click)="sidenav.toggle()">
+      <md-icon class="material-icons app-toolbar-menu">menu</md-icon>
+    </div>
+    TEST
+  </md-toolbar>
+  
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>
