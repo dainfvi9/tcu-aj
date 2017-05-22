@@ -3,66 +3,63 @@
         Crear Usuario
     </md-card-title>
     <md-card-content style="display:flex">
-        <form class="form-wrap">
+        <form (ngSubmit)="this.onSubmit()" class="form-wrap" #userForm = "ngForm">
             <table class="table-form">
                 <tr>
                     <td>
                         <md-input-container class="text-input">
-                            <input mdInput placeholder="Primer nombre" required />
+                            <input mdInput placeholder="Primer nombre" [(ngModel)]="this._user.firstName" name="firstName" required />
                         </md-input-container>
                     </td>
                     <td>
                         <md-input-container class="text-input">
-                            <input mdInput placeholder="Segundo nombre" required />
+                            <input mdInput placeholder="Segundo nombre" [(ngModel)]="this._user.secondName" name="secondName" required />
                         </md-input-container>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <md-input-container class="text-input">
-                            <input mdInput placeholder="Primer apellido" required />
+                            <input mdInput placeholder="Primer apellido" [(ngModel)]="this._user.firstLastName" name="firstLastName" required />
                         </md-input-container>
                     </td>
                     <td>
                         <md-input-container class="text-input">
-                            <input mdInput placeholder="Segundo apellido" required />
-                        </md-input-container>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <md-input-container class="text-input">
-                            <input mdInput placeholder="Email" required />
+                            <input mdInput placeholder="Segundo apellido" [(ngModel)]="this._user.secondLastName" name="secondLastName" required />
                         </md-input-container>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <md-select class="select" placeholder="Tipo">
-                            <md-option>Profesor</md-option>
-                            <md-option>Administrador</md-option>
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Email" [(ngModel)]="this._user.email" name="email" required />
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <md-select class="select" placeholder="Tipo" [(ngModel)]="this._user.type" name="type" required>
+                            <md-option *ngFor="let t of this._types" [value]="t.type">{{t.name}}</md-option>
                         </md-select>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <md-input-container class="text-input">
-                            <input mdInput placeholder="Password" required />
+                            <input type="password" mdInput placeholder="Password" [(ngModel)]="this._user.password" name="password"  required />
                         </md-input-container>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <md-select class="select" placeholder="Institución">
-                            <md-option>Colegio 1</md-option>
-                            <md-option>Colegio 2</md-option>
-                            <md-option>Colegio 3</md-option>
+                        <md-select class="select" placeholder="Institución" [(ngModel)]="this._user.schoolId" name="schoolId" required>
+                            <md-option *ngFor="let s of this._schools" [value]="s._id">{{s.name}}</md-option>
                         </md-select>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button class="form-button" md-raised-button color="primary"> Crear usuario </button>
+                        <button type="submit" class="form-button" md-raised-button color="primary" [disabled]="!userForm.form.valid"> Crear usuario </button>
                     </td>
                 </tr>
             </table>

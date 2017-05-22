@@ -30,6 +30,13 @@ app.use(bodyParser.json());
 //Path to dist
 app.use(express.static(path.join(__dirname,'dist')));
 
+//Enable CORS
+app.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    next();    
+});
+
 //Use api routes
 app.use('/api/school',schoolApi);
 app.use('/api/user',userApi);

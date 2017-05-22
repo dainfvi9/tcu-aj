@@ -9,14 +9,18 @@ import { MdCardModule, MdToolbarModule, MdSidenavModule, MdButtonModule,
   MdSelectModule, MdCheckboxModule, MdInputModule } from '@angular/material';
 import 'hammerjs';
 import { AppComponent } from './app.component';
-import { LoginComponent } from '../login/login.component';
-import { UserCreateComponent } from '../users/create/user-create.component';
 import 'rxjs/add/operator/toPromise';
-
+import { StudentsComponent } from './students/students.component';
+import { SchoolsComponent } from './schools/schools.component';
+import { LoginComponent } from './login/login.component';
+import { UserCreateComponent } from './user-create/user-create.component';
+import { SchoolsService } from './schools.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    StudentsComponent,
+    SchoolsComponent,
     LoginComponent,
     UserCreateComponent
   ],
