@@ -1,0 +1,71 @@
+<md-card style="text-align:center">
+    <md-card-title>
+        Crear Usuario
+    </md-card-title>
+    <md-card-content style="display:flex">
+        <form class="form-wrap">
+            <table class="table-form">
+                <tr>
+                    <td>
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Primer nombre" required />
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Segundo nombre" required />
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Primer apellido" required />
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Segundo apellido" required />
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Email" required />
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <md-select class="select" placeholder="Tipo">
+                            <md-option>Profesor</md-option>
+                            <md-option>Administrador</md-option>
+                        </md-select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <md-input-container class="text-input">
+                            <input mdInput placeholder="Password" required />
+                        </md-input-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <md-select class="select" placeholder="Institución">
+                            <md-option>Colegio 1</md-option>
+                            <md-option>Colegio 2</md-option>
+                            <md-option>Colegio 3</md-option>
+                        </md-select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="form-button" md-raised-button color="primary"> Crear usuario </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </md-card-content>
+</md-card>

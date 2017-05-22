@@ -5,13 +5,18 @@
     <md-card-content>
         <p>
             <md-input-container>
-                <input mdInput placeholder="Usuario" />
+                <input mdInput placeholder="Usuario" required />
             </md-input-container>
         </p>
         <p>
             <md-input-container>
-                <input type="password" mdInput placeholder="Contraseña" />
+                <input type="password" mdInput placeholder="Contraseña" required />
             </md-input-container>
+        </p>
+        <p>
+            <md-error>
+                Usuario o Contraseña equivocada, intente de nuevo. Contacte a su administrador.
+            </md-error>
         </p>
         <p>
             <button md-raised-button color="primary"> Login </button>
