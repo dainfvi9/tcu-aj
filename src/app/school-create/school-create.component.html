@@ -1,0 +1,31 @@
+<md-card style="text-align:center">
+  <md-card-title>
+    <button routerLink="/" style="float:left" class="" md-raised-button color="primary"> Regresar </button>    
+    Crear Usuario
+  </md-card-title>
+  <md-card-content style="display:flex">
+    <form (ngSubmit)="this.onSubmit()" class="form-wrap" #userForm="ngForm">
+      <table class="table-form">
+        <tr>
+          <td colspan="2">
+            <md-input-container class="text-input">
+              <input mdInput placeholder="Nombre" [(ngModel)]="this._school.name" name="name" required />
+            </md-input-container>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <md-input-container class="text-input">
+              <input mdInput placeholder="Dirección" [(ngModel)]="this._school.address" name="address" required />
+            </md-input-container>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="form-button" md-raised-button color="primary" [disabled]="!userForm.form.valid"> Crear colegio </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </md-card-content>
+</md-card>

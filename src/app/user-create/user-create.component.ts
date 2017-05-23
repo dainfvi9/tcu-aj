@@ -26,7 +26,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   getSchools(){
-    this.schoolsService.getAllSchools().then(schools => this._schools = schools);
+    this.schoolsService.getAllSchools();
   }
 
   onSubmit(){

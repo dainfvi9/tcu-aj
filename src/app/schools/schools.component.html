@@ -1,3 +1,13 @@
-<p>
-  schools works!
-</p>
+<md-card style="text-align:center">
+  <md-card-title>
+    <span style="float:left">Colegios</span>
+    <button routerLink="/schools/create" style="float:right" class="" md-raised-button color="primary"> Crear colegio </button>
+  </md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let s of this._schools">
+        <h3 md-subheader>{{s.name}}</h3>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

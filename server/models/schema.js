@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 Schema = mongoose.Schema;
 
 var schoolSchema = new Schema({
-    name: {type:String, required: true},
+    name: {type:String, required: true, unique: true},
     address: {type:String, required: true},
     classrooms: [{type: Schema.Types.ObjectId, ref: 'Classroom'}],
     teachers: [{type: Schema.Types.ObjectId, ref: 'User'}],
