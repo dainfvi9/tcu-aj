@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { User } from './user';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class UsersService {
@@ -9,25 +10,22 @@ export class UsersService {
 
   constructor(private http: Http) { }
 
-  getAllUser() {
+  getAllUsers() {
     return this.http
       .get(this.userURL)
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
+      .map(response => response.json() as User[])
+      .catch((error:any)=> Observable.throw(error.json().error || 'Server error'));
   }
 
   createUser(_user){
-    return this.http
-      .post(this.userURL+"/create",_user)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
-  }
+    let bodyString = JSON.stringify(_user);
+    let headers = new Headers({'Content-type':'application/json'});
+    let options = new RequestOptions({headers:headers});
 
-  private handleError(error): Promise<any> {
-    console.error('ERROR:', error);
-    return Promise.reject(error.message || error);
+    return this.http
+      .post(this.userURL+"/create",bodyString,options)
+      .map((response:Response) => response.json() as User)
+      .catch((error:any)=> Observable.throw(error.json().error || 'Server error'));
   }
 
 }

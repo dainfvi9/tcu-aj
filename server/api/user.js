@@ -8,19 +8,20 @@ var School = mongoose.model('School');
 router.post('/create', function (req, res) {
     if (mongoose.connection.readyState == 1) {
         var _user = new User(req.body);
-        User.create(_user, function (err, user) {
+        _user.save(function (err, callback) {
             if (err) res.send(err);
             else if(req.body.type == 'TEACHER'){
-                parent = School.findById(user.schoolId, function (err, _school) {
+                parent = School.findById(req.body.schoolId, function (err, _school) {
                     if (err) res.send(err);
-                    else if (!user.schoolId) res.send("No ID was sent");
+                    else if (!req.body.schoolId) res.send("No ID was sent");
                     else{
                         _school.teachers.push(_user);
                         _school.save();
-                        console.log("User created");
+                        res.json(callback);
                     }
                 });
             }
+            else res.json(callback);
         });       
     }
     else {

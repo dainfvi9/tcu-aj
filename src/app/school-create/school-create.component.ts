@@ -25,6 +25,6 @@ export class SchoolCreateComponent implements OnInit {
   }
 
   goSchools(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/schools']);
   }
 }

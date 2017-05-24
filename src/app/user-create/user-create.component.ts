@@ -3,6 +3,7 @@ import { SchoolsService } from '../schools.service';
 import { UsersService } from '../users.service';
 import {School} from '../school';
 import {User} from '../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-create',
@@ -12,7 +13,7 @@ import {User} from '../user';
 })
 export class UserCreateComponent implements OnInit {
 
-  constructor(private schoolsService: SchoolsService, private usersService: UsersService) { }
+  constructor(private router:Router, private schoolsService: SchoolsService, private usersService: UsersService) { }
   private _schools;
   private _user;
   private _types = [
@@ -25,13 +26,24 @@ export class UserCreateComponent implements OnInit {
     this._user = new User();
   }
 
-  getSchools(){
-    this.schoolsService.getAllSchools();
+  
+  getSchools() {
+    this.schoolsService.getAllSchools().subscribe(
+      schools => this._schools = schools,
+      error => console.log(error)
+    );
   }
 
   onSubmit(){
     this._user.active = true;
-    this.usersService.createUser(this._user);
-    
+    this.usersService.createUser(this._user).subscribe(() => {
+      this.goUsers();
+    });
   }
+
+  goUsers(){
+    this.router.navigate(['/users']);
+  }
+
+  
 }

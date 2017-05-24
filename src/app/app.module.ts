@@ -6,7 +6,7 @@ import { RouterModule} from '@angular/router';
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule, MdToolbarModule, MdSidenavModule, MdButtonModule, 
-  MdSelectModule, MdCheckboxModule, MdInputModule, MdListModule } from '@angular/material';
+  MdSelectModule, MdCheckboxModule, MdInputModule, MdListModule, MdIconModule } from '@angular/material';
 import 'hammerjs';
 import { AppComponent } from './app.component';
 import 'rxjs/add/operator/toPromise';
@@ -17,6 +17,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { SchoolsService } from './schools.service';
 import { SchoolCreateComponent } from './school-create/school-create.component';
 import { Observable } from 'rxjs/Observable';
+import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { Observable } from 'rxjs/Observable';
     SchoolsComponent,
     LoginComponent,
     UserCreateComponent,
-    SchoolCreateComponent
+    SchoolCreateComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { Observable } from 'rxjs/Observable';
     MdCardModule,
     MdSelectModule,
     MdListModule,
+    MdIconModule,
     RouterModule.forRoot([
       {
         path:'login',
@@ -49,12 +52,16 @@ import { Observable } from 'rxjs/Observable';
         component: UserCreateComponent
       },
       {
-        path:'',
+        path:'schools',
         component: SchoolsComponent
       },
       {
         path:'schools/create',
         component: SchoolCreateComponent
+      },
+      {
+        path:'users',
+        component: UsersComponent
       },
     ])
   ],

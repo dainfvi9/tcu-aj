@@ -1,14 +1,14 @@
 <md-card style="text-align:center">
-  <md-card-title  style="text-align: left">
-    <span>Colegios</span>
-    <button routerLink="/schools/create" style="float:right" class="" md-raised-button color="primary"> Crear colegio </button>
+  <md-card-title style="text-align: left">
+    <span>Usuarios</span>
+    <button routerLink="/users/create" style="float:right" class="" md-raised-button color="primary"> Crear usuario </button>
   </md-card-title>
   <md-card-content>
     <md-list>
-      <md-list-item *ngFor="let s of this._schools">
+      <md-list-item *ngFor="let u of this._users">
         <md-icon md-list-icon>business</md-icon>
         <h3 md-line>
-          {{s.name}}
+          {{u.firstName}}
           <span style="float:right">
           <md-icon>update</md-icon>
           <md-icon>delete</md-icon>
