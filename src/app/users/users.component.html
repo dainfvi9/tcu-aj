@@ -8,7 +8,7 @@
       <md-list-item *ngFor="let u of this._users">
         <md-icon md-list-icon>business</md-icon>
         <h3 md-line>
-          {{u.firstName}}
+          {{u.firstName+" "+u.secondName+" "+u.firstLastName+" "+u.secondLastName}}
           <span style="float:right">
           <md-icon>update</md-icon>
           <md-icon>delete</md-icon>

@@ -1,13 +1,20 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
-    sidenav
+  <md-sidenav #sidenav mode="push" class="app-sidenav">
+    <md-list>
+      <md-list-item>
+        <button routerLink="/schools" class="menu-button" md-button color="primary" (click)="sidenav.toggle()">Colegios</button>
+      </md-list-item>
+      <md-list-item>
+        <button routerLink="/users" class="menu-button" md-button color="primary" (click)="sidenav.toggle()">Usuarios</button>
+      </md-list-item>
+    </md-list>
   </md-sidenav>
   
-  <md-toolbar color="primary">
+  <md-toolbar color="primary" class="toolbar-style">
     <div class="app-icon-button" (click)="sidenav.toggle()">
-      <md-icon class="material-icons app-toolbar-menu">menu</md-icon>
+      <md-icon class="material-icons app-toolbar-menu menu-icon">menu</md-icon>
     </div>
-    TEST
+    Sistema Control de Estudiantes
   </md-toolbar>
   
   <div class="app-content">
