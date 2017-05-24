@@ -8,12 +8,38 @@ Luego que tengan las dependencias, en la carpeta principal esta el archivo `serv
 
 El proyecto esta configurado para correr un servidor de Node.js que tiene un API para realizar transacciones con MongoDB usando Mongoose. La base de datos ya esta creada y alojada en `mlab.com` para que usemos la misma. Los modelos y schemas ya estan creados.
 
-Dentro de la carpeta `./src` esta un aplicación en Angular2 como front-end, no tiene nada aún, solo las dependencias que hasta ahora solo es `Angular-Material`.
-En `./src` es donde se realiza toda la programación del front-end y pueden probar la parte visual usando `ng serve`.
+Dentro de la carpeta `./src` esta un aplicación en Angular2 como front-end, no tiene nada aún, solo las dependencias que hasta ahora solo es `Angular-Material, HammerJS`.
+En `./src/app` es donde se realiza toda la programación del front-end y pueden probar la parte visual usando `ng serve`.
 
+`ESTO ES SOLO PARA DESARROLLO`
+La mejor forma para programar es abrir dos consolas, en una lanzar el servidor de node con `node server.js` para iniciar el api,  y en la otra consola `ng serve` para iniciar angular con live rebuild (que hace que cada vez que guarden se recargue solo y no tener que estar reiniciando el servidor cada vez. 
+
+`ESTO ES SOLO PARA PRODUCCIÓN`
 La carpeta `./dist` es donde esta compilado el front-end, esa carpeta se auto genera con el comando `ng build`. Este último hay que hacerlo cada vez que se prueba la base de datos con el front-end.
 
 Al lanzar el servidor de Node.js con `node server.js` el proyecto apunta directamente a la carpeta `./dist` y así se puede probar todo de un solo. Si usan solo `ng serve` no les va a cargar nada en la base de datos, solo se puede probar la parte visual.
+
+# Estructura
+
+La carpeta principal `./src/app` es el root de la interfaz, ahi se aloja el componente principal y los demas servicios y clases.
+Los demas componentes estan cada uno en su carpeta, ejemplo el componente que muestra colegios esta en la carpeta `./src/app/schools`. 
+
+Cada componente tiene tres archivos (* sería un nombre cualquiera para el componente)
+`*.component.ts` Es la parte donde se programa la vista
+`*.component.html` Es la parte donde esta todo el html y template de la vista
+`*.component.css` Es la hoja de estilo para cada vista
+
+Los servicios y clases estan en la carpeta `./src/app` y se nombran como `*.service.ts` para servicios y `*.ts` para clases
+
+Si necesitan crear uno, no hay que crearlo a mano. Simplemente se usa el comando 
+`ng g componente my-component`
+`ng g service my-service`
+`ng g class my-class`
+
+Cualquier pregunta o dude, en las guías oficiales esta la mejor documentación y las convenciones normales para trabajar en angular:
+https://angular.io/docs/ts/latest/guide/
+https://material.angular.io/
+
 
 # TcuAj
 
