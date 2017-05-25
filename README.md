@@ -2,7 +2,9 @@
 
 Descarguen todo el proyecto o clonen el repositorio (de preferencia clonenlo).
 
-Tienen que instalar Node.JS (version 6 o mayor) y luego tienen que usar el comando `npm install` dentro de la carpeta del proyecto para instalar las dependencias. 
+Tienen que instalar Node.JS (version v6 o mayor pero yo estoy usando v7.10 descargable de aquí https://nodejs.org/en/download/current/) y luego tienen que usar el comando `npm install` dentro de la carpeta del proyecto para instalar las dependencias. 
+
+De este punto la carpeta `/tcu-aj` o como le llamaran a la carpeta es donde estan todos los documentos y las demas carpetas y cuando me refiero a `/alguna-carpeta` me refiero a que esta dentro de `tcu-aj` y es la carpeta root del proyecto.
 
 Luego que tengan las dependencias, en la carpeta principal esta el archivo `server.js` que es el que inicia el servidor usando el comando `node server.js`. 
 
