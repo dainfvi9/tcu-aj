@@ -1,20 +1,25 @@
-<md-card style="text-align:center">
-  <md-card-title style="text-align: left">
+<div style="text-align:center">
+  <div style="text-align: center">
     <span>Usuarios</span>
+    <button routerLink="" style="float:left" class="" md-raised-button color="accent"> Regresar </button>
     <button routerLink="/users/create" style="float:right" class="" md-raised-button color="primary"> Crear usuario </button>
-  </md-card-title>
-  <md-card-content>
-    <md-list>
-      <md-list-item *ngFor="let u of this._users">
-        <md-icon md-list-icon>business</md-icon>
-        <h3 md-line>
+  </div>
+  <table style="display:block;table-layout:fixed;margin-top:50px;overflow:scroll">
+    <tr *ngFor="let u of this._users">
+      <td colspan="1">
+        <button class="" md-button color="primary"> Ver </button>
+      </td>
+      <td colspan="1">
+        <span>
           {{u.firstName+" "+u.secondName+" "+u.firstLastName+" "+u.secondLastName}}
-          <span style="float:right">
-          <md-icon>update</md-icon>
-          <md-icon>delete</md-icon>
-          </span>
-        </h3>
-      </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>
+        </span>
+      </td>
+      <td colspan="1">
+        <button md-button color="primary"> Editar </button>
+      </td>
+      <td colspan="1">
+        <button md-button color="warn"> Eliminar </button>
+      </td>
+    </tr>
+  </table>
+</div>

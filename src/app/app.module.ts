@@ -6,7 +6,9 @@ import { RouterModule} from '@angular/router';
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdCardModule, MdToolbarModule, MdSidenavModule, MdButtonModule, 
-  MdSelectModule, MdCheckboxModule, MdInputModule, MdListModule, MdIconModule } from '@angular/material';
+  MdSelectModule, MdCheckboxModule, MdInputModule, MdListModule, MdIconModule,
+  MdGridListModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout'
 import 'hammerjs';
 import { AppComponent } from './app.component';
 import 'rxjs/add/operator/toPromise';
@@ -18,6 +20,11 @@ import { SchoolsService } from './schools.service';
 import { SchoolCreateComponent } from './school-create/school-create.component';
 import { Observable } from 'rxjs/Observable';
 import { UsersComponent } from './users/users.component';
+import { MainComponent } from './main/main.component';
+import { DataService } from './data.service';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { SchoolDetailComponent } from './school-detail/school-detail.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +33,14 @@ import { UsersComponent } from './users/users.component';
     LoginComponent,
     UserCreateComponent,
     SchoolCreateComponent,
-    UsersComponent
+    UsersComponent,
+    MainComponent,
+    UserDetailComponent,
+    SchoolDetailComponent
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule, 
@@ -42,7 +53,12 @@ import { UsersComponent } from './users/users.component';
     MdSelectModule,
     MdListModule,
     MdIconModule,
+    MdGridListModule,
     RouterModule.forRoot([
+      {
+        path:'',
+        component: MainComponent
+      },
       {
         path:'login',
         component: LoginComponent
@@ -65,7 +81,7 @@ import { UsersComponent } from './users/users.component';
       },
     ])
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

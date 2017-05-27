@@ -13,3 +13,11 @@ md-sidenav{
     margin-top: 5px;
     margin-right: 10px;
 }
+
+.app-content{
+    margin: 20px;
+}
+
+.app-content md-card{
+    margin: 20px;
+}

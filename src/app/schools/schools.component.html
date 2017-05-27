@@ -1,20 +1,33 @@
-<md-card style="text-align:center">
-  <md-card-title  style="text-align: left">
+<div style="text-align:center">
+  <div style="text-align: center">
     <span>Colegios</span>
+    <button routerLink="" style="float:left" class="" md-raised-button color="accent"> Regresar </button>
     <button routerLink="/schools/create" style="float:right" class="" md-raised-button color="primary"> Crear colegio </button>
-  </md-card-title>
-  <md-card-content>
-    <md-list>
-      <md-list-item *ngFor="let s of this._schools">
-        <md-icon md-list-icon>business</md-icon>
-        <h3 md-line>
+  </div>
+  <!--<md-nav-list fxLayout="column" style="margin:20px">
+    <md-list-item *ngFor="let s of this._schools">
+      <button fxFlex="25" class="" md-button color="primary"> Ver </button>
+      <div style="width:20%" fxFlex="25">{{s.name}}</div>
+      <button fxFlex="25" md-button color="primary"> Editar </button>
+      <button fxFlex="25" md-button color="warn"> Eliminar </button> 
+    </md-list-item>
+  </md-nav-list>-->
+  <table style="display:block;table-layout:fixed;margin-top:50px;overflow:scroll">
+    <tr  *ngFor="let s of this._schools">
+      <td colspan="1">
+        <button class="" md-button color="primary"> Ver </button>
+      </td>
+      <td colspan="1">
+        <span>
           {{s.name}}
-          <span style="float:right">
-          <md-icon>update</md-icon>
-          <md-icon>delete</md-icon>
-          </span>
-        </h3>
-      </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>
+        </span>
+      </td>
+      <td colspan="1">
+        <button md-button color="primary"> Editar </button>
+      </td>
+      <td colspan="1">
+        <button md-button color="warn"> Eliminar </button>
+      </td>
+    </tr>
+  </table>
+</div>
